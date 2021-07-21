@@ -7,6 +7,11 @@ export default createStore({
     }
   },
   mutations: {
+    deleteTask(state, taskId) {
+      const idx = state.tasks.findIndex(t => t.id === taskId)
+      state.tasks.splice(idx, 1)
+      localStorage.setItem('my-tasks', JSON.stringify(state.tasks))
+    },
     createTask(state, task) {
       state.tasks.push(task)
       localStorage.setItem('my-tasks', JSON.stringify(state.tasks))
@@ -18,6 +23,9 @@ export default createStore({
     }
   },
   actions: {
+    deleteTask({ commit }, taskId) {
+      commit('deleteTask', taskId)
+    },
     createTask({commit}, task) {
       if (task.date < new Date()) {
         task.status = 'cancelled'

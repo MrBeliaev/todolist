@@ -23,7 +23,7 @@ export default {
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    background: rgb(0, 0, 0);
+    background: rgb(51, 51, 51);
 }
 
 a {
